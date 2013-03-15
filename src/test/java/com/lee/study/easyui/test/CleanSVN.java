@@ -82,7 +82,7 @@ public class CleanSVN {
 	public static void main(String[] args) {
 		CleanSVN clean = new CleanSVN();
 		String fileName = args == null || args.length == 0 ? null : args[0];
-		fileName = "C:\\Users\\lee\\Desktop\\keta-security-1.1.0";
+		fileName = "D:\\keta-security";
 		System.out.println(fileName);
 		clean.executeCleaning(fileName);
 	}
