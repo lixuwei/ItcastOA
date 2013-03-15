@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	
+	<!-- <constant name="struts.objectFactory" value="spring"/>  -->
+	<constant name="struts.ui.theme" value="simple"/> 
+	<constant name="struts.action.extension" value="do"/>
+	<constant name="struts.devMode" value="false"/>
+	<constant name="struts.configuration.xml.reload" value="true"/>
+	<constant name="struts.server.static.browserCache" value="false"/>
+	<constant name="struts.i18n.encoding" value="utf-8"/>
+	<constant name="struts.i18n.reload" value="true"/>
+	<constant name="struts.multipart.maxSize" value="104857600"/>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+	<constant name="struts.enable.SlashesInActionNames" value="false"/>
+	<constant name="struts.tag.altSyntax" value="true"/>
+	<constant name="struts.dispatcher.parametersWorkaround" value="false"/>
+	
+	
+	<package name="test" namespace="/charts" extends="json-default">
+		<action name="demo_*" method="{1}" class="com.lee.study.itcastoa.web.action.DemoAction">
+			<result name="printJSON" type="json"/>
+		</action>
+	</package>
+	
+	<!-- ======================================================== -->
+	<!-- ======================Department Action================= -->
+	<!-- ======================================================== -->
+	<package name="department" namespace="/department" extends="struts-default">
+		<action name="department_*" method="{1}" class="com.lee.study.itcastoa.web.action.DepartmentAction">
+			<result name="showlist">/WEB-INF/jsp/department/list.jsp</result>
+			<result name="action2action" type="redirectAction">department_showAllDepartment</result>
+			<result name="addUI">/WEB-INF/jsp/department/add.jsp</result>
+			<result name="updateUI">/WEB-INF/jsp/department/update.jsp</result>
+		</action>
+	</package>
+	<!-- ======================================================== -->
+	<!-- ======================Post Action======================= -->
+	<!-- ======================================================== -->
+	<package name="post" namespace="/post" extends="struts-default">
+		<action name="post_*" method="{1}" class="com.lee.study.itcastoa.web.action.PostAction">
+			<result name="showlist">/WEB-INF/jsp/post/list.jsp</result>
+			<result name="action2action" type="redirectAction">post_showAllPost</result>
+			<result name="addUI">/WEB-INF/jsp/post/add.jsp</result>
+			<result name="updateUI">/WEB-INF/jsp/post/update.jsp</result>
+		</action>
+	</package>
+	<!-- ======================================================== -->
+	<!-- ======================User Action======================= -->
+	<!-- ======================================================== -->
+	<package name="user" namespace="/user" extends="struts-default">
+		<action name="user_*" method="{1}" class="com.lee.study.itcastoa.web.action.UserAction">
+			<result name="showlist">/WEB-INF/jsp/user/list.jsp</result>
+			<result name="action2action" type="redirectAction">user_showAllUser</result>
+			<result name="addUI">/WEB-INF/jsp/user/add.jsp</result>
+			<result name="updateUI">/WEB-INF/jsp/user/update.jsp</result>
+		</action>
+	</package>
+</struts>

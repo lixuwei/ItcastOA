@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.lee.study.itcastoa.domain.Department" table="tDepartment" >
+        <id name="did" type="long">
+            <column name="did" length="10" />
+            <generator class="increment" />
+        </id>
+        <property name="dname" type="string">
+            <column name="dname" length="20" not-null="true" unique="true"/>
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="150" not-null="true" unique="true"/>
+        </property>
+       
+        <set name="users" inverse="true">
+        	<key>
+        		<column name="departmentid"/>
+        	</key>
+        	<one-to-many class="com.lee.study.itcastoa.domain.User"/>
+        </set>
+    </class>
+</hibernate-mapping>

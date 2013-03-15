@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-1-13 20:56:14 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.lee.study.itcastoa.domain.Post" table="tPost" >
+        <id name="pid" type="long">
+            <column name="pid" length="10" />
+            <generator class="increment" />
+        </id>
+        <property name="pname" type="string">
+            <column name="pname" length="20" not-null="true" unique="true"/>
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="150" not-null="true" unique="true"/>
+        </property>
+       
+        <set name="users" table="tUser_Post" inverse="true">
+        	<key>
+        		<column name="pid"/>
+        	</key>
+        	<many-to-many class="com.lee.study.itcastoa.domain.User" column="uid"></many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

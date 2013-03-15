@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HTML5 study</title>
+<script type="text/javascript">
+    var canvas; 
+	function draw(){
+		canvas = document.getElementById("canvas");
+		if(canvas == null){
+			return false;
+		}
+		var context = canvas.getContext('2d');
+		context.fillStyle="red";
+		context.strokeStyle="blue";
+		context.lineWidth=3;
+		context.fillRect(5,5,400,300);
+		context.strokeRect(5,5,400,300);
+	}
+    function clearRect(){
+		canvas.getContext('2d').clearRect(5,5,400,300);
+    }
+</script>
+</head>
+<body>
+<canvas id="canvas" width="600" height="500"></canvas>
+<input type="button" onclick="draw()" value="绘图"/>
+<input type="button" onclick="clearRect()" value="填充色变透明"/>
+</body>
+</html>
